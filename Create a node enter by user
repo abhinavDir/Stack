@@ -1,1 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+int data;
+struct node *link;
+};
+int main(){
+struct node *head,*ptr1,*temp;
+head=(struct node*)malloc(sizeof(struct node));
+printf("enter the value of first element");
+scanf("%d", &head->data);
 
+int n,i;
+printf("enter the nummber of node");
+scanf("%d",&n);
+temp=head;
+for(i=1; i<=n; i++){
+ptr1=(struct node*)malloc(sizeof(struct node));
+printf("enter the value of element %d :", i+1);
+scanf("%d",&ptr1->data);
+temp->link=ptr1;
+ptr1->link=NULL;
+
+temp=temp->link;
+}
+temp=head;
+while(temp!=NULL)
+{
+printf("%d", temp->data);
+temp=temp->link;
+}
+return 0;
+}
